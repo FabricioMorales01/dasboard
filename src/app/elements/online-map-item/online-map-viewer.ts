@@ -39,27 +39,48 @@ export class OnlineMapItem extends CustomItemViewer {
             mode = this.getPropertyValue('DisplayMode'),
             showMarkers = mode === 'Markers' || mode === 'MarkersAndRoutes' || this.canMasterFilter(),
             showRoutes = mode === 'Routes' || mode === 'MarkersAndRoutes';
+
+        const coordLinesData = {
+            type: "FeatureCollection",
+            features: []
+        };
+        
         if(this.getBindingValue('Latitude').length > 0 && this.getBindingValue('Longitude').length > 0) {
             let cont = 0;
+            let prev;
             this.iterateData(row => {
                 var latitude = row.getValue('Latitude')[0];
                 var longitude = row.getValue('Longitude')[0];
                 if (latitude && longitude) {
-                    if (showMarkers) {
-                        markers.push({
-                            coordinates: [longitude, latitude],  
+                    
+                    const point = [longitude, latitude];
+                    markers.push({
+                        coordinates: point,  
+                        attributes: {
+                            name: 'Point' + (cont++)
+                        }                          
+                    });
+
+                    if(prev) {
+                        coordLinesData.features.push({
+                            geometry: {
+                                type: "LineString",
+                                coordinates: [prev, point]
+                            },
                             attributes: {
-                                name: 'Point' + (cont++)
-                            }                          
+                                row: row
+                            }, 
+                            properties: {
+                                row1: row
+                            }
                         });
                     }
-                    if (showRoutes) {
-                        routes.push([latitude, longitude]);
-                    }
+
+                    prev = point;
+                    
                 }
             });
         }
-        debugger;
         const    options = <any>{
             title: {
                 text: "Sea Currents"
@@ -69,7 +90,30 @@ export class OnlineMapItem extends CustomItemViewer {
                 hoverEnabled: false
             }, {
                 dataSource: markers
+            },
+            {
+                type: "line",
+                color: "#aaa",
+                hoveredBorderColor: "#f00",
+                hoveredColor: "#f00", 
+                selectedColor: "#0f0", 
+                borderWidth: 3,
+                hoverEnabled: true,
+                dataSource: coordLinesData
             }],
+            onClick: (arg) => {
+                if (arg && arg.target && arg.target.layer && arg.target.layer.type === "line") {
+                    const selected = !arg.target.selected();
+                    const row = arg.target.attribute("row1");
+                    arg.target.selected(selected);
+                    if (selected) {
+                        this.setMasterFilter(row);
+                    } else {
+                        super.clearSelection();
+                    }
+                    
+                }
+            },
             tooltip: {
                 enabled: true,
                 customizeTooltip: function (arg) {
