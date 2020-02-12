@@ -23,6 +23,7 @@
     "dashboard-extensions": "git+https://git@github.com/DevExpress/dashboard-extensions.git",
     "devexpress-dashboard": "^19.2.6",
     "devextreme": "^19.2.6",
+    "leaflet": "^1.6.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\node\\Rosen\\Angular\\dashboard\\dashboard\\server\\Dashboard\\DashboardDemo\\DashboardDemo.csproj": {}
+  },
+  "projects": {
+    "D:\\node\\Rosen\\Angular\\dashboard\\dashboard\\server\\Dashboard\\DashboardDemo\\DashboardDemo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\node\\Rosen\\Angular\\dashboard\\dashboard\\server\\Dashboard\\DashboardDemo\\DashboardDemo.csproj",
+        "projectName": "DashboardDemo",
+        "projectPath": "D:\\node\\Rosen\\Angular\\dashboard\\dashboard\\server\\Dashboard\\DashboardDemo\\DashboardDemo.csproj",
+        "packagesPath": "C:\\Users\\Fabricio\\.nuget\\packages\\",
+        "outputPath": "D:\\node\\Rosen\\Angular\\dashboard\\dashboard\\server\\Dashboard\\DashboardDemo\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "D:\\node\\Rosen\\Angular\\dashboard\\dashboard\\server\\Dashboard\\NuGet.Config",
+          "C:\\Users\\Fabricio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/hq6i5FIggaSJCLieqHGhnrdrONakRXdfEkRVcRORD99drPNcYe/api": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
